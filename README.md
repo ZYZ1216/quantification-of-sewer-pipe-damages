@@ -28,13 +28,8 @@ This project uses a Conda environment to ensure consistency across development a
 
    Begin by cloning the repository from GitLab to your local machine. Make sure you have Git installed.
 
-2. **Navigate to the Project Directory**
 
-   ```bash
-   cd damage_quantification
-   ```
-
-3. **Create the Conda Environment**
+2. **Create the Conda Environment**
 
    Use the provided `environment.yml` file to create the environment:
 
@@ -42,7 +37,7 @@ This project uses a Conda environment to ensure consistency across development a
    conda env create -f environment.yml
    ```
 
-4. **Activate the Environment**
+3. **Activate the Environment**
 
    Once the environment is created, activate it:
 
@@ -50,7 +45,7 @@ This project uses a Conda environment to ensure consistency across development a
    conda activate damage_quantification
    ```
 
-5. **Start Working on the Project**
+4. **Start Working on the Project**
 
    With the environment activated, you're ready to run scripts, notebooks, or start development.
 
