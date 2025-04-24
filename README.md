@@ -17,6 +17,22 @@ A modular framework for quantifying various types of damage in sewer pipes from 
 
 ## Project Structure
 
+# Mapping German Names to English 
+
+| Deutscher Name     | Englische Bezeichnung  | File Names             |
+|--------------------|------------------------|------------------------|
+| Riss               | Crack                  | `crack.py`             |
+| Wurzel             | Root                   | `root.py`              |
+| Ablagerung         | Deposition             | `deposition.py`        |
+| Hindernis          | Obstacle               | `obstacle.py`          |
+| Anschluss          | Connection             | `connection.py`        |
+| Fehlausrichtung    | Misalignment           | `misalignment.py`      |
+| Verformung         | Deformation            | `deformation.py`       |
+| Fugenschaden       | Joint Damage           | `joint_damage.py`      |
+| Materialverlust    | Material Loss          | `material_loss.py`     |
+| Bruch              | Break                  | `break.py`             |
+
+
 
 # Damage Quantification
 
