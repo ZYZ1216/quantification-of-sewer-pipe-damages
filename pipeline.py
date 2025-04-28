@@ -1,3 +1,11 @@
+import pkgutil
+import importlib
+import quantifiers
+
+# Load all quantifier modules
+for _, module_name, _ in pkgutil.iter_modules(quantifiers.__path__):
+    importlib.import_module(f"quantifiers.{module_name}")
+
 import numpy as np
 from typing import Tuple, Dict, Any
 from factory import QuantifierFactory

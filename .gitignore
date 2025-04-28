@@ -25,5 +25,5 @@ __pycache__/
 images_ignore/
 eda/
 
-# conda/
-# .conda/
+conda/
+.conda/
