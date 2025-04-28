@@ -1,3 +1,29 @@
+# Environment variables
+.env
+
+# Python virtual environment
+.venv/
+
+# Build artifacts
+sewer_damage.egg-info/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Specific OS compiled files
+*.so
+*.dylib
+*.dll
+*.lib
+
+*.log
+*.log.*
 *.png
 images_ignore/
 eda/
+
+# conda/
+# .conda/
