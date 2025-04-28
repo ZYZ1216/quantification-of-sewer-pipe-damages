@@ -1,3 +1,4 @@
 *.png
 images_ignore/
 eda/
+__pycache__/
