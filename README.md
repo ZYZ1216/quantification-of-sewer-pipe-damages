@@ -4,16 +4,20 @@ A modular framework for quantifying various types of damage in sewer pipes from 
 
 ## Damage Types and Metrics
 
-1. **Crack** → Width in mm
-2. **Root** → Area % blockage
-3. **Deposition** → % area covered
-4. **Obstacle** → Size vs pipe
-5. **Connection** → Protrusion length
-6. **Misalignment** → Pipe center deviation
-7. **Deformation** → Shape distortion
-8. **JointDamage** → Broken segment detection
-9. **MaterialLoss** → Wall loss detection
-10. **Break** → Missing part size
+| Damage Group   | Measurement Method                   | Description                                                                                                         | Measurement Unit | Alternative Method (low priority)                                                        |
+|----------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------|------------------|------------------------------------------------------------------------------------------|
+| Crack          | Crack width                          | The largest crack width of all cracks in the area is measured and saved                                             | mm               | -                                                                                        |
+| Root           | Root thickness                       | The thickest root thickness of all the roots in the area is measured and saved.                                     | mm               | If it is a root ball that is considered an obstacle, then the rules for obstacles apply. |
+| Deposition     | Area of duct cross-section reduction | The area of the channel cross-section that is reduced by the deposit.                                               | %                | -                                                                                        |
+| Obstacle       | Area of duct cross-section reduction | The area of the channel cross-section that is reduced by the obstacle.                                              | %                | -                                                                                        |
+| Connection     | Height and width of the connection   | Height and width of the connection.                                                                                 | mm               | -                                                                                        |
+| Misalignment   | Pipe center deviation                | Offset of the pipe connection in horizontal, vertical (and radial [low priority]) direction.                        | mm               | -                                                                                        |
+| Deformation    | Area of duct cross-section reduction | Visible deformation of the pipe cross-section. This is maybe too hard to detect from the 2D images. (Low priority)  | %                | -                                                                                        |
+| JointDamage    | See Misalignment                     | -                                                                                                                   |                  | -                                                                                        |
+| MaterialLoss   | Depth of removal                     | Depth of material removal of the channel material.                                                                  | mm               | -                                                                                        |
+| Break          | Length                               | Axial length of the fracture in pipe direction.                                                                     | mm               | -                                                                                        |
+
+
 
 ## Project Structure
 
