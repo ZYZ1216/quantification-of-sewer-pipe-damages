@@ -21,7 +21,7 @@ A modular framework for quantifying various types of damage in sewer pipes from 
 
 ## Project Structure
 
-# Mapping German Names to English 
+### Mapping German Names to English 
 
 | Deutscher Name       | Englische Bezeichnung  | File Names             |
 |----------------------|------------------------|------------------------|
@@ -38,11 +38,52 @@ A modular framework for quantifying various types of damage in sewer pipes from 
 
 
 
-# Damage Quantification
 
-This project uses `uv` because it's faster, better and written in Rust. Please follow the steps below to get started.
 
-## Getting Started
+
+## Environment Setup - Using Conda
+<details>
+<summary>Click to expand</summary>
+If you are using `uv`, please skip to the next section.
+
+Please follow the steps below to get started.
+
+
+1. **Clone the Repository**
+
+   Begin by cloning the repository from GitLab to your local machine. Make sure you have Git installed.
+
+
+2. **Create the Conda Environment**
+
+   Use the provided `environment.yml` file to create the environment:
+
+   ```bash
+   conda env create -f environment.yml
+   ```
+
+3. **Activate the Environment**
+
+   Once the environment is created, activate it:
+
+   ```bash
+   conda activate damage_quantification
+   ```
+
+4. **Start Working on the Project**
+
+   With the environment activated, you're ready to run scripts, notebooks, or start development.
+
+</details>
+
+
+## Environment Setup - Using `uv`
+
+<details>
+<summary>Click to expand</summary>
+If you are using conda, please skip to the next section.
+
+Please follow the steps below to get started.
 
 1. **Clone the Repository**
 
@@ -103,21 +144,32 @@ This project uses `uv` because it's faster, better and written in Rust. Please f
 
    # Install project in editable mode (needed to run scripts/import modules)
    uv pip install -e . --no-deps
+
+### Additional Notes
+
+- **Updating Dependencies:** If `pyproject.toml` changes (e.g., new dependencies are added), regenerate the lock file and re-sync:
+    ```bash
+    # Ensure .venv is activated
+    uv lock
+    uv sync
+    uv pip install -e . --no-deps # Re-run if sync removed editable install
+    ```
+
+- **Troubleshooting:** If you encounter issues, try removing the `.venv` directory and recreating the environment from step 3 onwards. Ensure `uv` itself is up-to-date (`uv self update`).
    ```
 
-7. **Start Working on the Project**
-
-   With the environment activated and dependencies installed, you're ready to run scripts, notebooks, or start development.
+</details>
 
 ## Downloading Training Images
+
+<details>
+<summary>Click to expand</summary>
 
 This project includes a script to download specific training images from the FTP server based on labels defined in a CSV file. This is useful for obtaining the necessary data for training or evaluating specific damage type quantifiers.
 
 **Prerequisites:**
 
-1.  **Activated Environment:** Ensure your `uv` virtual environment (`.venv`) is activated (see step 5 in Getting Started).
-2.  **Installed Dependencies:** Make sure all dependencies are installed (`uv sync` and `uv pip install -e .`).
-3.  **Configured `.env` file for FTP Access:** The download script requires FTP credentials and the server path. These must be configured in a `.env` file in the project root:
+**Configured `.env` file for FTP Access:** The download script requires FTP credentials and the server path. These must be configured in a `.env` file in the project root:
     *   **If you haven't already:** Copy the example file: `cp .env.example .env` (or copy it manually).
     *   **Edit `.env`:** Open the `.env` file and replace the placeholder values for `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD`, and `FTP_BASE_PATH` with your actual credentials and the base directory where images are stored on the FTP server.
     *   **Security:** Remember, `.env` is in `.gitignore` and should *not* be committed to version control. (See step 4 in Getting Started for more details).
@@ -150,6 +202,8 @@ python scripts/download_images.py --csv-path data/training_data.csv --label Riss
 - Change the `--label` argument to the desired German label (e.g., `Hindernis`, `Riss`, `Wurzel`).
 - Adjust `--max-images` to control the number of images downloaded per label.
 - Change the `--output-dir` argument to specify where the downloaded images will be saved. It's recommended to use a directory name corresponding to the lowercase version of the label (e.g., `images_ignore/hindernis/` for the `Hindernis` label).
+
+</details>
 
 ## Workflow for Collaboration
 
@@ -187,18 +241,6 @@ git push --set-upstream origin feature/obstacle-quantification
 ```
 
 Follow team conventions for creating Merge Requests (or Pull Requests) to integrate your feature branch back into the main branch after review.
-
-## Additional Notes
-
-- **Updating Dependencies:** If `pyproject.toml` changes (e.g., new dependencies are added), regenerate the lock file and re-sync:
-    ```bash
-    # Ensure .venv is activated
-    uv lock
-    uv sync
-    uv pip install -e . --no-deps # Re-run if sync removed editable install
-    ```
-
-- **Troubleshooting:** If you encounter issues, try removing the `.venv` directory and recreating the environment from step 3 onwards. Ensure `uv` itself is up-to-date (`uv self update`).
 
 ---
 
