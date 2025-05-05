@@ -1,0 +1,14 @@
+name: damage_quantification
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - plotly
+  - pip
+  - pip:
+      - tqdm
