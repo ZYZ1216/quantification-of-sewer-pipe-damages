@@ -30,7 +30,6 @@ def download_images(csv_path, ftp_host, ftp_user, ftp_password, ftp_base_path, o
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     print(f"Output directory: {output_path.resolve()}")
-
     # --- Read CSV and filter with pandas ---
     try:
         df = pd.read_csv(csv_path, encoding='utf-8')
@@ -63,9 +62,14 @@ def download_images(csv_path, ftp_host, ftp_user, ftp_password, ftp_base_path, o
 
     print(f"{len(image_paths_to_download)} images to download after removing already downloaded files.")
 
-    current_base_path = ftp_base_path if ftp_base_path else ""
-    if current_base_path and not current_base_path.endswith('/'):
-        current_base_path += '/'
+    # current_base_path = ftp_base_path if ftp_base_path else ""
+    # if current_base_path and not current_base_path.endswith('/'):
+    #     current_base_path += '/'
+    current_base_path = "/SlidingWindow/train/"  # add path
+    if ftp_base_path:
+        current_base_path = ftp_base_path
+        if not current_base_path.endswith('/'):
+            current_base_path += '/'
 
     # Split the list into batches for each thread
     def chunkify(lst, n):
@@ -246,6 +250,7 @@ if __name__ == "__main__":
         else:
             break
 
+
     if not parser.get_default('output_dir') == args.output_dir and args.output_dir:
         pass
     else:
@@ -273,7 +278,7 @@ if __name__ == "__main__":
         print(f"NOTICE: FTP Base Path from environment was '{args.ftp_base_path}'.")
         args.ftp_base_path = original_ftp_path_candidate
         print(f"Corrected FTP Base Path for download operations to: {args.ftp_base_path}")
-    
+
     proceed = input("Proceed with download? [Y/n]: ").strip().lower()
     if proceed not in ("", "y", "yes"):
         print("Aborted by user.")
@@ -291,4 +296,4 @@ if __name__ == "__main__":
         max_images=args.max_images,
         num_threads=args.num_threads
     )
-    print("Image extraction process finished.") 
+    print("Image extraction process finished.")
