@@ -34,7 +34,7 @@ class JointDamageQuantifier(DamageQuantifier):
 
     def preprocess(self, image: np.ndarray, bbox: Tuple[int, int, int, int]) -> np.ndarray:
         roi = crop_roi(image, bbox)
-        self.original_roi_size = roi.shape[:2]  # 存储 ROI 的原始尺寸 (height, width)
+        self.original_roi_size = roi.shape[:2]
         roi_resized = resize_roi(roi, (256, 256))
         return roi_resized
 
@@ -49,7 +49,7 @@ class JointDamageQuantifier(DamageQuantifier):
         cleaned = np.zeros_like(mask)
         for i in range(1, num_labels):
             area = stats[i, cv2.CC_STAT_AREA]
-            if area >= 200:  # 你可以调整面积阈值
+            if area >= 200:
                 cleaned[labels == i] = 1
         return cleaned
 

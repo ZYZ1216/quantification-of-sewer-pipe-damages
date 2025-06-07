@@ -61,6 +61,7 @@ class TestJointDamageQuantifier(unittest.TestCase):
         self.assertIsInstance(result["confidence"], float)
 
 
+
 if __name__ == '__main__':
     unittest.main()
 
