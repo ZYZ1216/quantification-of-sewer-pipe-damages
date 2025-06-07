@@ -1,6 +1,5 @@
 import numpy as np
 import torch
-import os
 from pathlib import Path
 import cv2
 from typing import Tuple, Dict, Any
